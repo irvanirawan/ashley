@@ -27,9 +27,9 @@ class WaktuHari extends Model
      */
     protected $fillable = ['nama', 'start', 'finish'];
 
-    public function BookingDetail()
+    public function Booking()
     {
-        return $this->hasMany('App\BookingDetail');
+        return $this->hasMany('App\Booking');
     }
 
 }

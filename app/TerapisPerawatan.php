@@ -33,7 +33,7 @@ class TerapisPerawatan extends Model
     }
     public function Terapis()
     {
-        return $this->belongsTo('App\Terapis');
+        return $this->belongsTo('App\Terapi');
     }
     public function Perawatan()
     {

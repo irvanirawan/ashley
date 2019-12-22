@@ -2,10 +2,29 @@
 
 @section('head')
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <style>
 /*search box css start here*/
+.single-booking-table .single-date-hours {
+    flex: 100%!important;
+    max-width: 100%!important;
+}
+.perawatanli{
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.perawatanlis{
+    margin-left: 15px;
+}
+.perawatanlis:hover {
+    background-color: #ccc;
+    cursor: pointer;
+}
+.jamslot:hover {
+    background-color: #ccc;
+    cursor: pointer;
+}
 .search-sec{
     padding: 2rem;
 }
@@ -36,7 +55,19 @@
         background: rgba(26, 70, 104, 0.51);
     }
 }
-
+@media screen and (min-width: 768px){
+    .pull80{
+        padding-left:80px;
+    }
+}
+@media screen and (max-width: 450px){
+    .pull80{
+        padding-bottom:10px;
+    }
+    .mb-80{
+        margin-bottom: 10px;
+    }
+}
 @media (max-width: 992px){
     .search-sec{
         background: #1A4668;
@@ -47,6 +78,7 @@
     .foot{
         height: 200px;
     }
+
 }
 .instant-results {
     background:#fff;
@@ -123,7 +155,15 @@
     width: 90%;
     max-width: none!important;
 }
-
+.click {
+    opacity: 0.4;
+    -webkit-box-shadow: 0 2px 40px 8px rgba(15, 15, 15, 0.15);
+    box-shadow: 0 2px 40px 8px rgba(15, 15, 15);
+}
+.click .team-social-info {
+    opacity: 1;
+    visibility:visible;
+}
 </style>
 @endsection
 
@@ -147,13 +187,13 @@
         </div>
     </section>
     <!-- Breadcrumb Area End -->
-    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+    {{-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> --}}
 <!-- Akame About Area Start -->
 <section id="select-perawatan" class="bg-form akame-portfolio section-padding-80 clearfix">
 
 </section>
 <!-- Modal -->
-<div id="myModal" class="modal" role="dialog">
+{{-- <div id="myModal" class="modal" role="dialog">
     <div class="modal-dialog modal-lg">
 
       <!-- Modal content-->
@@ -162,17 +202,12 @@
       </div>
 
     </div>
-  </div>
+  </div> --}}
 <!-- Akame About Area End <div id="select-tanggal"></div> -->
 @endsection
 
 @section('js')
 <script>
-// element.classList.remove("mystyle");
-$(".btn").click(function(){
-    $('.modal-backdrop').remove();
-    element.classList.remove("modal-backdrop");
-    alert("The paragraph was clicked.");
-});
+document.getElementById("two").focus();
 </script>
 @endsection

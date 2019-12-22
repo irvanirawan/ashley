@@ -50,6 +50,14 @@ html {
     .register-form{
         margin-top: 10%;
     }
+    .image-logo{
+        width: 150px;
+    }
+
+    .login-main-text{
+        margin-top: 0px!important;
+        padding: 0px!important;
+    }
 }
 
 @media screen and (min-width: 768px){
@@ -109,7 +117,7 @@ html {
                 <div class="login-main-text">
                    {{-- <h2>Application<br> Login Page</h2>
                    <p>Login or register from here to access.</p> --}}
-                   <img src="/image/ashley.png" alt="ashley" class="img">
+                   <img src="/image/ashley.png" alt="ashley" class="image-logo">
                 </div>
              </div>
              <div class="main">

@@ -10,7 +10,7 @@
     <style>
     body {
     font-family: "Lato", sans-serif;
-    background-image:url("https://lh3.googleusercontent.com/p/AF1QipO3cGKw0i2LSGB_q-5TL7dbN3S0Z3SDqRmjDyUQ=s1600-h380");
+    background-image:url("{{asset('image/ashley-banner.jpg')}}");
     background-repeat: no-repeat;
     background-size: 100% 100%;
     line-height:2.5;
@@ -50,6 +50,15 @@ html {
     .register-form{
         margin-top: 10%;
     }
+
+    .image-logo{
+        width: 150px;
+    }
+
+    .login-main-text{
+        margin-top: 0px!important;
+        padding: 0px!important;
+    }
 }
 
 @media screen and (min-width: 768px){
@@ -57,6 +66,9 @@ html {
         margin-left: 40%;
     }
 
+    .image-logo{
+        width: 400px;
+    }
     .sidenav{
         width: 40%;
         position: fixed;
@@ -96,7 +108,7 @@ html {
                 <div class="login-main-text">
                    {{-- <h2>Application<br> Login Page</h2>
                    <p>Login or register from here to access.</p> --}}
-                   <img src="/image/ashley.png" alt="ashley" style="width: 400px;">
+                   <img src="/image/ashley.png" alt="ashley" class="image-logo">
                 </div>
              </div>
              <div class="main">

@@ -1210,6 +1210,7 @@ input:focus {
     .single-team-member:hover .team-member-info h5, .single-team-member:focus .team-member-info h5 {
       color: #bca858; }
 
+
 /* :: 16.0 Service CSS */
 .single-service-area {
   position: relative;

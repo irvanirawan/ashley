@@ -19,6 +19,16 @@ class PerawatanController extends Controller
      *
      * @return \Illuminate\View\View
      */
+    public function api_index(Request $request)
+    {
+        $data = \App\PerawatanKategori::with(['Perawatan'])->get();
+        return response()->json($data);
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\View\View
+     */
     public function index(Request $request)
     {
         $keyword = $request->get('search');
