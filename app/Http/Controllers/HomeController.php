@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Booking;
+use DB;
 
 class HomeController extends Controller
 {
@@ -60,6 +62,18 @@ class HomeController extends Controller
     public function booking()
     {
         return view('home.booking');
+    }
+
+    public function history()
+    {
+        // $data = Booking::where('user_id',Auth::User()->id)->first();dd($data->TerapisPerawatan->terapis_perawatan_id);
+        $data = DB::table('booking')
+                    ->where('user_id',Auth::User()->id)
+                    ->join('waktu_hari','waktu_hari.id','=','booking.waktu_hari_id')
+                    ->join('terapis_perawatan','terapis_perawatan.id','=','booking.terapis_perawatan_id')
+                    ->join('perawatan','perawatan.id','=','terapis_perawatan.perawatan_id')
+                    ->get();
+        return view('home.history',['data'=>$data]);
     }
 
     public function ashley_login()

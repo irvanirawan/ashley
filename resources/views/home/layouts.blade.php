@@ -124,7 +124,13 @@
                                 @if (Auth::check())
                                 <!-- Cart Icon -->
                                 <div class="cart-icon ml-5 mt-4 mt-lg-0">
-                                    <a href="#"><i class="icon_cart"></i> <span class="badge">0</span></a>
+                                <a href="/booking-history"><i class="icon_cart"></i>
+                                    <span class="badge">
+                                    {{DB::table('booking')
+                                    ->where('user_id',Auth::User()->id)
+                                    ->count()}}
+                                    </span>
+                                </a>
                                 </div>
                                 @endif
                                 <!-- Book Icon -->

@@ -7,6 +7,7 @@ use App\Http\Requests;
 
 use App\Booking;
 use Illuminate\Http\Request;
+use Auth;
 
 class BookingController extends Controller
 {
@@ -128,5 +129,18 @@ class BookingController extends Controller
         Booking::destroy($id);
 
         return redirect('admin/booking')->with('flash_message', 'Booking deleted!');
+    }
+
+    public function booking(Request $request)
+    {
+        $user = Auth::User();
+        Booking::create([
+            'user_id'               => $user->id ,
+            'status'                => 1 ,
+            'terapis_perawatan_id'  => $request->terapisPerawatanId ,
+            'tanggal_datang'        => $request->tanggal ,
+            'waktu_hari_id'         => $request->slotId
+        ]);
+        return response()->json('sukses');
     }
 }

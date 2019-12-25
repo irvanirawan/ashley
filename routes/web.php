@@ -17,6 +17,7 @@ Route::get('/aboutus', 'HomeController@aboutus')->name('aboutus');
 Route::get('/blog', 'HomeController@blog')->name('blog');
 Route::get('/contact', 'HomeController@contact')->name('contact');
 Route::get('/booking', 'HomeController@booking')->name('booking');
+Route::get('/booking-history', 'HomeController@history')->name('history');
 Route::get('/ashley-login', 'HomeController@ashley_login')->name('ashley.login');
 Route::get('/ashley-register', 'HomeController@ashley_register')->name('ashley.register');
 
@@ -37,3 +38,4 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::resource('perawatan-kategori', 'Admin\PerawatanKategoriController');
     Route::resource('jadwal-terapis', 'Admin\JadwalTerapisController');
 });
+Route::post('booking', 'Admin\BookingController@booking');

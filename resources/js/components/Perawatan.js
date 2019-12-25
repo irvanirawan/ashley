@@ -9,13 +9,6 @@ class Perawatan extends React.Component{
         this.state = {
             data:''
         };
-        this.perawatanklik = this.perawatanklik.bind(this);
-    }
-    perawatanklik(event){
-        // const s = event.target.getAttribute('data-tag');
-
-        // localStorage.setItem('perawatanidvalue',event.target.dataset.tag.id);
-        // localStorage.setItem('perawatannamavalue',event.target.dataset.tag.nama);
     }
     componentDidMount(){
         window.axios.get('/api/perawatan').then(({ data }) => {
@@ -34,7 +27,7 @@ class Perawatan extends React.Component{
             const perawatan2 = Array.from(item.perawatan);
             perawatan2.map((element,i)=>{
                 rows.push(
-                    <PerawatanList key={element.id + 10} datanya={element} fungsi={this.props.fungsi}/>
+                    <PerawatanList key={element.id + 10} datanya={element} fSetPerawatan={this.props.fSetPerawatan}/>
                             );
             })
 
@@ -53,19 +46,15 @@ class Perawatan extends React.Component{
 class PerawatanList extends React.Component{
     constructor(props){
         super(props)
-        this.state = {
-            data:''
-        };
-        this.ff = this.ff.bind(this);
+        this.setPerawatan = this.setPerawatan.bind(this);
     }
-    ff(){
-
-        this.props.fungsi(this.props.datanya);
+    setPerawatan(){
+        this.props.fSetPerawatan(this.props.datanya);
     }
     render() {
         return(
             <li className="perawatanlis">
-                <a onClick={this.ff} > - {this.props.datanya.nama} ({this.props.datanya.harga}k) </a>
+                <a onClick={this.setPerawatan} > - {this.props.datanya.nama} ({this.props.datanya.harga}k) </a>
             </li>
         )
     }

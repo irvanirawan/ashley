@@ -9,8 +9,9 @@ class Tanggal extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            load:false,
+            load:true,
             data:'',
+            count:'',
             idslotaktif:'',
             date: new Date(),
             harihari:["Minggu","Senin","Selasa","Rabu","Kamis","Jum'at","Sabtu"],
@@ -20,20 +21,29 @@ class Tanggal extends React.Component{
         this.selectSlot = this.selectSlot.bind(this);
     }
     handleDateClick(date){
-        this.setState({load:true});
-        const hari          = this.state.harihari[date.getDay()];
-        const bulan         = this.state.bulanbulan[date.getMonth()];
-        const tahun         = date.getFullYear();
-        const perawatanId   = this.props.perawatanId;
-        this.setState({date});
-        window.axios.get('/api/tanggal').then(({ data }) => {
-            this.setState({data,load:false})
+        this.setState({date,load:true,idslotaktif:''});
+        const datee     = date;
+        const tanggal   = datee.getDate();
+        const bulan     = datee.getMonth();
+        const tahun     = datee.getFullYear();
+        const paramDate = tahun+'-'+(bulan + 1)+'-'+tanggal;
+        const parampampam = {tanggal:paramDate,perawatanId:this.props.perawatanId};
+        window.axios.get('/api/tanggal',{params:parampampam}).then(({ data }) => {
+            this.setState({count:data.count,data:data.data,load:false})
           });
     }
     componentDidMount(){
         // awal load set semua state pertanggalan nya
-        window.axios.get('/api/tanggal').then(({ data }) => {
-            this.setState({data})
+        const datee     = this.state.date;
+        const tanggal   = datee.getDate();
+        const bulan     = datee.getMonth();
+        const tahun     = datee.getFullYear();
+        const namahari  = this.state.harihari[datee.getDay()];
+        const namabulan = this.state.bulanbulan[datee.getMonth()];
+        const paramDate = tahun+'-'+(bulan + 1)+'-'+tanggal;
+        const parampampam = {tanggal:paramDate,perawatanId:this.props.perawatanId};
+        window.axios.get('/api/tanggal',{params:parampampam}).then(({ data }) => {
+            this.setState({count:data.count,data:data.data,load:false})
           });
     }
     selectSlot(idslotaktif,start){
@@ -59,16 +69,13 @@ class Tanggal extends React.Component{
         const rows = [];
         const slot = Array.from(data);
         slot.map((item,index)=>{
-            if(item.id == this.state.idslotaktif){
-                rows.push(
-                    <SlotList key={index} datanya={item} fungsi={this.selectSlot} terpilih={true}/>
-                            );
-            }else{
-                rows.push(
-                    <SlotList key={index} datanya={item} fungsi={this.selectSlot} terpilih={false}/>
-                            );
-            }
+            const dipilih = (item.id == this.state.idslotaktif) ? true : false ;
+            const fully = (item.terapis_perawatan_count === this.state.count)? true : false ;
+            rows.push(
+                <SlotList key={index} datanya={item} fungsi={this.selectSlot} terpilih={dipilih} full={fully}/>
+                        );
         })
+        const jumlahSlot = (this.state.count === 0)? 'Terapis Tidak Tersedia.': rows ;
         return(
         <React.Fragment>
             <div className="row">
@@ -83,7 +90,7 @@ class Tanggal extends React.Component{
                                 <h6>{tanggal} {namabulan} {tahun}</h6>
                             </div>
                             <div className="booking-hours d-flex flex-wrap">
-                                {this.state.load? <React.Fragment><Skeleton height={40} width={400} /><Skeleton height={40} width={400} /></React.Fragment>: rows }
+                                {this.state.load? <React.Fragment><Skeleton height={40} width={400} /><Skeleton height={40} width={400} /></React.Fragment>: jumlahSlot }
                             </div>
                         </div>
                     </div>
@@ -110,10 +117,11 @@ class SlotList extends React.Component{
         return(
             <React.Fragment>
                 {/* <span className="active" title="Full (Tidak Tersedia)">{this.props.datanya.start}</span> */}
-                { this.props.terpilih
-                ? <span onClick={this.handleSlotClick} className="jamslot" style={{backgroundColor:'#ccc'}}>{this.props.datanya.start}</span>
-                : <span onClick={this.handleSlotClick} className="jamslot">{this.props.datanya.start}</span>
+                { this.props.full
+                ? <span title={this.props.full ? 'Full (Tidak Tersedia)' : 'Tersedia' } className={this.props.full ? 'active' : 'jamslot' } style={(this.props.terpilih)?{backgroundColor:'#ccc'}:{}}>{this.props.datanya.start}</span>
+                : <span onClick={this.handleSlotClick} title={this.props.full ? 'Full (Tidak Tersedia)' : 'Tersedia' } className={this.props.full ? 'active' : 'jamslot' } style={(this.props.terpilih)?{backgroundColor:'#ccc'}:{}}>{this.props.datanya.start}</span>
                 }
+                {/* <span onClick={this.handleSlotClick} title={this.props.full ? 'Full (Tidak Tersedia)' : 'Tersedia' } className={this.props.full ? 'active' : 'jamslot' } style={(this.props.terpilih)?{backgroundColor:'#ccc'}:{}}>{this.props.datanya.start}</span> */}
             </React.Fragment>
         )
     }

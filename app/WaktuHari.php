@@ -31,5 +31,9 @@ class WaktuHari extends Model
     {
         return $this->hasMany('App\Booking');
     }
+    public function TerapisPerawatan()
+    {
+        return $this->belongsToMany('App\TerapisPerawatan','booking','waktu_hari_id','terapis_perawatan_id');
+    }
 
 }

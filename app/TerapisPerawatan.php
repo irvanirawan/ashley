@@ -39,5 +39,9 @@ class TerapisPerawatan extends Model
     {
         return $this->belongsTo('App\Perawatan');
     }
+    public function WaktuHari()
+    {
+        return $this->belongsToMany('App\WaktuHari','booking','terapis_perawatan_id','waktu_hari_id');
+    }
 
 }

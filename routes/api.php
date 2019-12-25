@@ -24,3 +24,4 @@ Route::get('/tes', function (Request $request) {
 Route::get('/perawatan', 'ApiController@perawatan');
 Route::get('/tanggal', 'ApiController@tanggal');
 Route::get('/terapis', 'ApiController@terapis');
+Route::post('/booking', 'ApiController@booking');

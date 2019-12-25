@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Skeleton from 'react-loading-skeleton';
 
 import '../css/SelectPerawatan.scss';
 
@@ -7,6 +8,7 @@ class Terapis extends React.Component{
     constructor(props){
         super(props)
         this.state = {
+            load:true,
             data:'',
             terapisPerawatanId:''
         };
@@ -14,8 +16,14 @@ class Terapis extends React.Component{
     }
     componentDidMount(){
         // awal load set semua state pertanggalan nya
-        window.axios.get('/api/terapis').then(({ data }) => {
-            this.setState({data})
+        const datee     = this.props.tanggalFormat;
+        const tanggal   = datee.getDate();
+        const bulan     = datee.getMonth();
+        const tahun     = datee.getFullYear();
+        const tanggalFormat   = tahun+'-'+(bulan + 1)+'-'+tanggal;
+        const parampampam = {perawatanId:this.props.perawatanId,slotId:this.props.slotId,tanggal:tanggalFormat};
+        window.axios.get('/api/terapis',{params:parampampam}).then(({ data }) => {
+            this.setState({data,load:false})
           });
     }
     selectTerapis(terapisPerawatanId,terapisPerawatanNama){
@@ -27,21 +35,22 @@ class Terapis extends React.Component{
         const rows = [];
         const slot = Array.from(data);
         slot.map((item,index)=>{
-            if(item.id == this.state.terapisPerawatanId){
+            if(item.waktu_hari_count === 0){
+                const dipilih = (item.id == this.state.terapisPerawatanId) ? true : false ;
                 rows.push(
-                    <TerapisList key={index} datanya={item} fungsi={this.selectTerapis} terpilih={true}/>
-                            );
-            }else{
-                rows.push(
-                    <TerapisList key={index} datanya={item} fungsi={this.selectTerapis} terpilih={false}/>
+                    <TerapisList key={index} datanya={item} fungsi={this.selectTerapis} terpilih={dipilih}/>
                             );
             }
-        })
+        });
+        const jumlahTerapis = (rows.length === 0) ? 'Maaf, Terapis tidak tersedia. Silahkan Pilih di tanggal berbeda.' : rows ;
         return(
             <React.Fragment>
             <div className="container">
                 <div className="row">
-                    {rows}
+                    { this.state.load
+                    ? <React.Fragment><Skeleton count={4} height={260} width={230} /></React.Fragment>
+                    : rows
+                    }
                 </div>
             </div>
             </React.Fragment>

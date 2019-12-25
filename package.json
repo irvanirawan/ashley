@@ -35,6 +35,7 @@
         "adminlte-reactjs": "^1.0.6",
         "antd": "^3.25.3",
         "babel-loader": "^8.0.6",
+        "react-animated-dots": "^1.1.0",
         "react-bootstrap": "^1.0.0-beta.16",
         "react-box": "^2.0.0",
         "react-calendar": "^2.19.2",
