@@ -22,6 +22,9 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="{{asset('akame/style.css')}}">
 @yield('head')
+<style>
+
+</style>
 </head>
 
 <body>
@@ -60,7 +63,7 @@
                     <nav class="classy-navbar justify-content-between" id="akameNav">
 
                         <!-- Logo -->
-                        <a class="nav-brand" href="index.html"><img style="width: 90px" src="{{asset('image/ashley.png')}}" alt=""></a>
+                        <a class="nav-brand" href="/"><img style="width: 90px" src="{{asset('image/ashley.png')}}" alt=""></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -102,7 +105,7 @@
                                     {{-- <li class="{{ Request::is('blog') ? 'active' : '' }}"><a href="{{route('blog')}}">Blog</a></li> --}}
                                     <li class="{{ Request::is('contact') ? 'active' : '' }}"><a href="{{route('contact')}}">Contact</a></li>
                                     @if (Auth::check())
-                                    <li><a href="#">{{Auth::User()->name}}</a>
+                                    <li><a href="#" >{{Auth::User()->name}}</a>
                                         <ul class="dropdown">
                                             <li>
                                                 {{-- <a href="./index.html"><i class="fa fa-sign-out"></i> Logout</a> --}}

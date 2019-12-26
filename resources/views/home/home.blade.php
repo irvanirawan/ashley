@@ -14,7 +14,7 @@
                             <div class="col-12 col-md-9 col-lg-6">
                                 <div class="welcome-text">
                                     <h2 data-animation="fadeInUp" data-delay="100ms">Nail <br> Art</h2>
-                                    <p data-animation="fadeInUp" data-delay="400ms">“by Ashley Beauty Longue.”</p>
+                                    <p data-animation="fadeInUp" data-delay="400ms">“by Ashley Beauty Lounge.”</p>
                                     {{-- <a href="#" class="btn akame-btn" data-animation="fadeInUp" data-delay="700ms">About Us</a> --}}
                                 </div>
                             </div>
@@ -33,7 +33,7 @@
                             <div class="col-12 col-md-9 col-lg-6">
                                 <div class="welcome-text">
                                     <h2 data-animation="fadeInUp" data-delay="100ms">Nail <br> Art</h2>
-                                    <p data-animation="fadeInUp" data-delay="400ms">“by Ashley Beauty Longue”</p>
+                                    <p data-animation="fadeInUp" data-delay="400ms">“by Ashley Beauty Lounge”</p>
                                     {{-- <a href="#" class="btn akame-btn active" data-animation="fadeInUp" data-delay="700ms">About Us</a> --}}
                                 </div>
                             </div>
@@ -91,7 +91,7 @@
                     <!-- Section Heading -->
                     <div class="section-heading text-center">
                         <h2>Our Services</h2>
-                        <p>Beauty Longue.</p>
+                        <p>Beauty Lounge.</p>
                     </div>
                 </div>
             </div>
