@@ -24,55 +24,41 @@
 
     <!-- Service Area Start -->
     <section class="akame-service-area">
-
-        <!-- Single Service Item -->
-        <div class="single--service--item d-flex flex-wrap align-items-center">
-            <!-- Service Content -->
-            <div class="service-content">
-                <div class="service-text">
-                    <h2>Hair Cuts &amp; Style</h2>
-                    <p><span>Women's Haircut:</span> <span>$55+</span></p>
-                    <p><span>Men's Haircut:</span> <span>$75+</span></p>
-                    <p><span>Up Do Style:</span> <span>$35+</span></p>
-                    <p><span>Half-up do style:</span> <span>$45+</span></p>
+@foreach (DB::table('perawatan_kategori')->get() as $keysatu => $itemsatu)
+    @if (($keysatu % 2) == 0)
+                <div class="single--service--item d-flex flex-wrap align-items-center">
+                    <!-- Service Content -->
+                    <div class="service-content">
+                        <div class="service-text">
+                        <h2>{{$itemsatu->nama}}</h2>
+                        @foreach (DB::table('perawatan')->where('perawatan_kategori_id',$itemsatu->id)->get() as $item)
+                            <p><span>{{$item->nama}}:</span> <span>{{$item->harga}}</span></p>
+                        @endforeach
+                        </div>
+                    </div>
+                    <!-- Service Thumbnail -->
+                    <div class="service-thumbnail bg-img jarallax" style="background-image: url({{asset('image/ashley_services/')}}/{{$keysatu}}.jpg);"></div>
                 </div>
-            </div>
-            <!-- Service Thumbnail -->
-            <div class="service-thumbnail bg-img jarallax" style="background-image: url(akame/img/bg-img/30.jpg);"></div>
-        </div>
+    @else
+                <div class="single--service--item odd-item d-flex flex-wrap align-items-center">
+                    <!-- Service Thumbnail -->
+                    <div class="service-thumbnail bg-img jarallax" style="background-image: url({{asset('image/ashley_services/')}}/{{$keysatu}}.jpg);"></div>
 
-        <!-- Single Service Item -->
-        <div class="single--service--item odd-item d-flex flex-wrap align-items-center">
-            <!-- Service Thumbnail -->
-            <div class="service-thumbnail bg-img jarallax" style="background-image: url(akame/img/bg-img/31.jpg);"></div>
-
-            <!-- Service Content -->
-            <div class="service-content">
-                <div class="service-text">
-                    <h2>Hair dyed</h2>
-                    <p><span>Dye L'Oréal:</span> <span>$55+</span></p>
-                    <p><span>Dye Davines:</span> <span>$75+</span></p>
-                    <p><span>Dye GolDWell:</span> <span>$35+</span></p>
-                    <p><span>Dye Oriental:</span> <span>$45+</span></p>
+                    <!-- Service Content -->
+                    <div class="service-content">
+                        <div class="service-text">
+                            <h2>Hair dyed</h2>
+                            @foreach (DB::table('perawatan')->where('perawatan_kategori_id',$itemsatu->id)->get() as $item)
+                                <p><span>{{$item->nama}}:</span> <span>{{$item->harga}}</span></p>
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+    @endif
+@endforeach
 
-        <!-- Single Service Item -->
-        <div class="single--service--item d-flex flex-wrap align-items-center">
-            <!-- Service Content -->
-            <div class="service-content">
-                <div class="service-text">
-                    <h2>Hair Care</h2>
-                    <p><span>Shampoo &amp; Blow Dry:</span> <span>$55+</span></p>
-                    <p><span>Personalized Color:</span> <span>$75+</span></p>
-                    <p><span>Formal Styling:</span> <span>$35+</span></p>
-                    <p><span>Bridal &amp; Wedding:</span> <span>$45+</span></p>
-                </div>
-            </div>
-            <!-- Service Thumbnail -->
-            <div class="service-thumbnail bg-img jarallax" style="background-image: url(akame/img/bg-img/32.jpg);"></div>
-        </div>
+
+
 
     </section>
     <!-- Service Area End -->

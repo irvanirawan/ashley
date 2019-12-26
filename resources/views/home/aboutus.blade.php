@@ -29,7 +29,7 @@
                 <!-- Section Heading -->
                 <div class="col-12 col-lg-6">
                     <div class="section-heading text-right mb-80 pr-5 pt-3">
-                        <p>New York • Since 2004</p>
+                        <p>Tangerang • Since 2004</p>
                         <h2>About Our Stories</h2>
                         <span>History</span>
                     </div>
@@ -37,9 +37,10 @@
 
                 <div class="col-12 col-lg-6">
                     <div class="about--us--content mb-80">
-                        <p>At Hairone Salon, we are lorem ipsum dolor sit amet, consectetur adipi elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        <img src="akame/img/core-img/signature.png" alt="">
-                        <h4>Lara Croft</h4>
+                        <p>Lash • Brow • Nail • Facial.</p>
+                        <p>🇲🇨 🇰🇷SPMU Certified.</p>
+                        {{-- <img src="akame/img/core-img/signature.png" alt="">
+                        <h4>Lara Croft</h4> --}}
                     </div>
                 </div>
             </div>
@@ -55,8 +56,8 @@
             <div class="row">
                 <div class="col-12">
                     <div class="video-content-area mb-80">
-                        <img src="akame/img/bg-img/44.jpg" alt="">
-                        <a href="https://www.youtube.com/watch?v=Ldd8yjjo6jA" class="video-play-btn wow bounceInDown" data-wow-delay="200ms"><i class="fa fa-play"></i></a>
+                        <img src="image/asley-video.jpg" alt="">
+                        <a href="https://www.youtube.com/watch?v=ufuyGaaNsog" class="video-play-btn wow bounceInDown" data-wow-delay="200ms"><i class="fa fa-play"></i></a>
                     </div>
                 </div>
             </div>
@@ -94,7 +95,7 @@
                     <div class="single-cool-facts-area text-center mb-80 wow fadeInUp" data-wow-delay="800ms">
                         <span>Style</span>
                         <h2 class="counter">97</h2>
-                        <p>Different Hairstyles</p>
+                        <p>Different Therapy</p>
                     </div>
                 </div>
             </div>
@@ -112,7 +113,7 @@
                         <!-- Single Testimonial Slide -->
                         <div class="single-testimonial-slide">
                             <img src="akame/img/core-img/quote.png" alt="">
-                            <p>BlueFresh is so simple, it's so easy to use. And from the customer's standpoint it's very intuitive, the platform is pretty much unlimited features!</p>
+                            <p>The Best Eyelash!</p>
                             <div class="ratings-name d-flex align-items-center justify-content-center">
                                 <div class="ratings mr-3">
                                     <i class="icon_star"></i>
@@ -128,7 +129,7 @@
                         <!-- Single Testimonial Slide -->
                         <div class="single-testimonial-slide">
                             <img src="akame/img/core-img/quote.png" alt="">
-                            <p>BlueFresh is so simple, it's so easy to use. And from the customer's standpoint it's very intuitive, the platform is pretty much unlimited features!</p>
+                            <p>The Best Waxing!</p>
                             <div class="ratings-name d-flex align-items-center justify-content-center">
                                 <div class="ratings mr-3">
                                     <i class="icon_star"></i>
@@ -144,7 +145,7 @@
                         <!-- Single Testimonial Slide -->
                         <div class="single-testimonial-slide">
                             <img src="akame/img/core-img/quote.png" alt="">
-                            <p>BlueFresh is so simple, it's so easy to use. And from the customer's standpoint it's very intuitive, the platform is pretty much unlimited features!</p>
+                            <p>The Best Facial!</p>
                             <div class="ratings-name d-flex align-items-center justify-content-center">
                                 <div class="ratings mr-3">
                                     <i class="icon_star"></i>
@@ -170,7 +171,7 @@
     </div>
 
     <!-- Booking Area Start -->
-    <section class="booking-area-start section-padding-80-0">
+    {{-- <section class="booking-area-start section-padding-80-0">
         <div class="container">
             <div class="row align-items-center">
 
@@ -369,11 +370,11 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- Booking Area End -->
 
     <!-- Our Expert Area Start -->
-    <section class="akame-our-expert-area about-us-page section-padding-80-0">
+    {{-- <section class="akame-our-expert-area about-us-page section-padding-80-0">
 
         <!-- Side Thumbnail -->
         <div class="side-thumbnail" style="background-image: url(akame/img/bg-img/14.png);"></div>
@@ -488,7 +489,7 @@
 
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- Our Expert Area End -->
 
 @endsection

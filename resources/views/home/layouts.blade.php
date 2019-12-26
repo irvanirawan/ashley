@@ -44,7 +44,7 @@
                     </div>
                     <div class="col-7">
                         <div class="top-header-content text-right">
-                            <p><i class="fa fa-clock-o" aria-hidden="true"></i> Mon-Sat: 8.00 to 17.00 <span class="mx-2"></span> | <span class="mx-2"></span> <i class="fa fa-phone" aria-hidden="true"></i> Call 0816-1922-942</p>
+                            <p><i class="fa fa-clock-o" aria-hidden="true"></i> Mon-Sat: 8.00 to 17.00 <br> <i class="fa fa-phone" aria-hidden="true"></i> Call 0816-1922-942</p>
                         </div>
                     </div>
                 </div>
@@ -99,7 +99,7 @@
                                     {{-- <li><a href="./portfolio.html">Portfolio</a></li> --}}
                                     <li class="{{ Request::is('services') ? 'active' : '' }}"><a href="{{route('services')}}">Services</a></li>
                                     <li class="{{ Request::is('aboutus') ? 'active' : '' }}"><a href="{{route('aboutus')}}">About Us</a></li>
-                                    <li class="{{ Request::is('blog') ? 'active' : '' }}"><a href="{{route('blog')}}">Blog</a></li>
+                                    {{-- <li class="{{ Request::is('blog') ? 'active' : '' }}"><a href="{{route('blog')}}">Blog</a></li> --}}
                                     <li class="{{ Request::is('contact') ? 'active' : '' }}"><a href="{{route('contact')}}">Contact</a></li>
                                     @if (Auth::check())
                                     <li><a href="#">{{Auth::User()->name}}</a>

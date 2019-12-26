@@ -5,7 +5,7 @@
     <section class="welcome-area">
         <div class="welcome-slides owl-carousel">
             <!-- Single Welcome Slide -->
-            <div class="single-welcome-slide bg-img" style="background-image: url({{asset('akame/')}}/img/bg-img/16.jpg);">
+            <div class="single-welcome-slide bg-img" style="background-image: url({{asset('image/ashley_promo/ashley-promo-1.jpg')}});">
                 <!-- Welcome Content -->
                 <div class="welcome-content h-100">
                     <div class="container h-100">
@@ -13,9 +13,9 @@
                             <!-- Welcome Text -->
                             <div class="col-12 col-md-9 col-lg-6">
                                 <div class="welcome-text">
-                                    <h2 data-animation="fadeInUp" data-delay="100ms">We Care About <br> Your Hair</h2>
-                                    <p data-animation="fadeInUp" data-delay="400ms">“Discover your own style. Don't try to repeat what has already been written - have the courage to do your own thing and don't be afraid to do something different.”</p>
-                                    <a href="#" class="btn akame-btn" data-animation="fadeInUp" data-delay="700ms">About Us</a>
+                                    <h2 data-animation="fadeInUp" data-delay="100ms">Nail <br> Art</h2>
+                                    <p data-animation="fadeInUp" data-delay="400ms">“by Ashley Beauty Longue.”</p>
+                                    {{-- <a href="#" class="btn akame-btn" data-animation="fadeInUp" data-delay="700ms">About Us</a> --}}
                                 </div>
                             </div>
                         </div>
@@ -24,7 +24,7 @@
             </div>
 
             <!-- Single Welcome Slide -->
-            <div class="single-welcome-slide bg-img" style="background-image: url({{asset('akame/')}}/img/bg-img/16.jpg);">
+            <div class="single-welcome-slide bg-img" style="background-image: url({{asset('image/ashley_promo/ashley-promo-2.jpg')}});">
                 <!-- Welcome Content -->
                 <div class="welcome-content h-100">
                     <div class="container h-100">
@@ -32,9 +32,9 @@
                             <!-- Welcome Text -->
                             <div class="col-12 col-md-9 col-lg-6">
                                 <div class="welcome-text">
-                                    <h2 data-animation="fadeInUp" data-delay="100ms">We Care About <br> Your Hair</h2>
-                                    <p data-animation="fadeInUp" data-delay="400ms">“Discover your own style. Don't try to repeat what has already been written - have the courage to do your own thing and don't be afraid to do something different.”</p>
-                                    <a href="#" class="btn akame-btn active" data-animation="fadeInUp" data-delay="700ms">About Us</a>
+                                    <h2 data-animation="fadeInUp" data-delay="100ms">Nail <br> Art</h2>
+                                    <p data-animation="fadeInUp" data-delay="400ms">“by Ashley Beauty Longue”</p>
+                                    {{-- <a href="#" class="btn akame-btn active" data-animation="fadeInUp" data-delay="700ms">About Us</a> --}}
                                 </div>
                             </div>
                         </div>
@@ -52,24 +52,24 @@
                 <!-- Section Heading -->
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="section-heading mb-80">
-                        <h2>Hair Salon</h2>
-                        <p>The House of Hair Salon &amp; Spa</p>
-                        <span>About Us</span>
+                        <h2>Teacher Day</h2>
+                        <p>25% off all Treatments</p>
+                        <span>Special Offer</span>
                     </div>
                 </div>
 
                 <!-- About Us Thumbnail -->
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="about-us-thumbnail mb-80">
-                        <img src="{{asset('akame/img/bg-img/15.jpg')}}" alt="">
+                        <img src="{{asset('image/ashley_promo/promo-ashley-second.jpg')}}" alt="">
                     </div>
                 </div>
 
                 <!-- About Us Content -->
                 <div class="col-12 col-lg-4">
                     <div class="about-us-content mb-80 pl-4">
-                        <h3>Beautiful Hair Comes From A Legendary.</h3>
-                        <p>“Working in a salon, you look at trends all day long. You’re looking at color all the time,what new products are coming out. You’re a part of the fashion industry,especially if you’re working in a higher-end salon.”</p>
+                        <h3>Parent / Student</h3>
+                        <p>20% off all Treatment</p>
                         <a href="#" class="btn akame-btn active mt-30">Read More</a>
                     </div>
                 </div>
@@ -91,48 +91,24 @@
                     <!-- Section Heading -->
                     <div class="section-heading text-center">
                         <h2>Our Services</h2>
-                        <p>The House of Hair Salon &amp; Spa, incididunt ut labore et dolore magna aliqua.</p>
+                        <p>Beauty Longue.</p>
                     </div>
                 </div>
             </div>
 
             <div class="row">
 
-                <!-- Single Service Area -->
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="single-service-area mb-80 wow fadeInUp" data-wow-delay="200ms">
-                        <img src="{{asset('akame/img/core-img/s1.png')}}" alt="">
-                        <h5>Coloring</h5>
-                        <p>Ut enim ad minim veniam, quis trud exercitation...</p>
-                    </div>
-                </div>
+@foreach (DB::table('perawatan_kategori')->get() as $item)
 
-                <!-- Single Service Area -->
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="single-service-area mb-80 wow fadeInUp" data-wow-delay="400ms">
-                        <img src="{{asset('akame/img/core-img/s1.png')}}" alt="">
-                        <h5>Haircut</h5>
-                        <p>Consectetur adipisicing elit, sed doe eiusmod.</p>
-                    </div>
-                </div>
+    <div class="col-12 col-sm-6 col-lg-3">
+        <div class="single-service-area mb-80 wow fadeInUp" data-wow-delay="200ms">
+            <img src="{{asset('akame/img/core-img/s1.png')}}" alt="">
+            <h5>{{$item->nama}}</h5>
+            <p>{{$item->keterangan}}</p>
+        </div>
+    </div>
 
-                <!-- Single Service Area -->
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="single-service-area mb-80 wow fadeInUp" data-wow-delay="600ms">
-                        <img src="{{asset('akame/img/core-img/s1.png')}}" alt="">
-                        <h5>Hairstyle</h5>
-                        <p>Nemo enim ipsam voluptatem quia voluptas</p>
-                    </div>
-                </div>
-
-                <!-- Single Service Area -->
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="single-service-area mb-80 wow fadeInUp" data-wow-delay="800ms">
-                        <img src="{{asset('akame/img/core-img/s1.png')}}" alt="">
-                        <h5>Coloring</h5>
-                        <p>Ut enim ad minim veniam, quis trud exercitation...</p>
-                    </div>
-                </div>
+@endforeach
 
             </div>
         </div>
@@ -145,22 +121,23 @@
             <div class="row align-items-center">
                 <div class="col-12 col-lg-6">
                     <div class="choose-us-thumbnail mt-30 mb-80">
-                        <div class="choose-us-img bg-img" style="background-image: url({{asset('akame/img/bg-img/4.jpg')}});"></div>
+                        <div class="choose-us-img bg-img" style="background-image: url({{asset('image/ashley_promo/promo-ashley-thrid.jpg')}});"></div>
                     </div>
                 </div>
                 <div class="col-12 col-lg-6">
                     <!-- Section Heading -->
                     <div class="section-heading">
-                        <h2>Why Choose Us</h2>
-                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <h2>We Have</h2>
+                        <p>Package Promo.</p>
                     </div>
                     <!-- Choose Us Content -->
                     <div class="choose-us-content mt-30 mb-80">
                         <ul>
-                            <li><i class="fa fa-check-square-o" aria-hidden="true"></i> We Strive For LIVE Answer On Our Calls.</li>
-                            <li><i class="fa fa-check-square-o" aria-hidden="true"></i> A Wide Spectrum Of Skills And Experience.</li>
-                            <li><i class="fa fa-check-square-o" aria-hidden="true"></i> Fast Response To Requests &amp; Critical Response Time Guaranteed.</li>
-                            <li><i class="fa fa-check-square-o" aria-hidden="true"></i> We Help Solve Your Business Problems.</li>
+                            <li><i class="fa fa-check-square-o" aria-hidden="true"></i> Eyelash 2D Diamond.</li>
+                            <li><i class="fa fa-check-square-o" aria-hidden="true"></i> Eyelash Clasic Diamond.</li>
+                            <li><i class="fa fa-check-square-o" aria-hidden="true"></i> Mani Pedi.</li>
+                            <li><i class="fa fa-check-square-o" aria-hidden="true"></i> Esential Facial.</li>
+                            <li><i class="fa fa-check-square-o" aria-hidden="true"></i> Brazillian Waxing.</li>
                         </ul>
                     </div>
                 </div>
@@ -170,7 +147,7 @@
     <!-- Why Choose Us Area End -->
 
     <!-- Portfolio Area Start -->
-    <section class="akame-portfolio section-padding-80 clearfix">
+    {{-- <section class="akame-portfolio section-padding-80 clearfix">
         <div class="container">
             <div class="row">
                 <!-- Section Heading -->
@@ -296,11 +273,11 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- Portfolio Area End -->
 
     <!-- Our Expert Area Start -->
-    <section class="akame-our-expert-area section-padding-80-0">
+    {{-- <section class="akame-our-expert-area section-padding-80-0">
 
         <!-- Side Thumbnail -->
         <div class="side-thumbnail" style="background-image: url({{asset('akame/')}}/img/bg-img/14.png);"></div>
@@ -415,16 +392,16 @@
 
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- Our Expert Area End -->
 
     <!-- Border -->
-    <div class="container">
+    {{-- <div class="container">
         <div class="border-top mt-3"></div>
-    </div>
+    </div> --}}
 
     <!-- Blog Area Start -->
-    <section class="akame-blog-area section-padding-80-0 clearfix">
+    {{-- <section class="akame-blog-area section-padding-80-0 clearfix">
         <div class="container">
             <div class="row">
                 <!-- Section Heading -->
@@ -491,11 +468,11 @@
 
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- Blog Area End -->
 
     <!-- Call To Action Area Start -->
-    <section class="akame-cta-area bg-gray section-padding-80">
+    {{-- <section class="akame-cta-area bg-gray section-padding-80">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-sm-10 col-xl-5">
@@ -513,6 +490,6 @@
 
         <!-- CTA Thumbnail -->
         <div class="cta-thumbnail bg-img" style="background-image: url({{asset('akame/')}}/img/bg-img/cta.png);"></div>
-    </section>
+    </section> --}}
     <!-- Call To Action Area End -->
 @endsection
