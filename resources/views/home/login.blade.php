@@ -114,13 +114,13 @@ html {
              <div class="main">
                 <div class="col-md-6 col-sm-12" style="background-color: #f2f4f4bd;border-radius: 20px;padding-bottom: 0px;">
                    <div class="login-form">
-                      <form method="POST" action="{{ route('login') }}">
+                      <form method="POST" action="{{ route('ashley.login.post') }}">
                         @csrf
                          <div class="form-group" style="margin-bottom: 0px;">
-                            <label style="margin-bottom: 0px;">Email</label>
+                            <label style="margin-bottom: 0px;">Telp</label>
                             {{-- <input type="text" class="form-control" placeholder="User Name"> --}}
-                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                            @error('email')
+                            <input id="telp" type="text" class="form-control @error('telp') is-invalid @enderror" name="telp" value="{{ old('telp') }}" required autocomplete="telp" autofocus>
+                            @error('telp')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -143,9 +143,16 @@ html {
                    </div>
                 </div>
              </div>
-
+             @if($errors->any())
+             <h4>{{$errors->first()}}</h4>
+             @endif
 
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script>
+@if($errors->any())
+alert('{{$errors->first()}}')
+@endif
+</script>
 </body>
 </html>

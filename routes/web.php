@@ -9,6 +9,8 @@ Route::get('/booking', 'HomeController@booking')->name('booking');
 Route::get('/booking-history', 'HomeController@history')->name('history');
 Route::get('/ashley-login', 'HomeController@ashley_login')->name('ashley.login');
 Route::get('/ashley-register', 'HomeController@ashley_register')->name('ashley.register');
+Route::post('/ashley-login-post', 'HomeController@ashley_login_post')->name('ashley.login.post');
+Route::post('/ashley-register-post', 'HomeController@ashley_register_post')->name('ashley.register.post');
 
 Auth::routes();
 

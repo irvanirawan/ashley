@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use App\Booking;
+use App\User;
 use DB;
 
 class HomeController extends Controller
@@ -27,6 +29,7 @@ class HomeController extends Controller
     public function index()
     {
         // return view('home');
+        // dd(Auth::User());
         if (Auth::User()->admin == 1) {
             return redirect('admin');
         }else {
@@ -87,5 +90,34 @@ class HomeController extends Controller
     public function ashley_register()
     {
         return view('home.register');
+    }
+
+    public function ashley_login_post(Request $request)
+    {
+        // dd([$request->telp,Hash::make($request->password)]);
+        $user = Auth::attempt(['telp' => request('telp'), 'password' => request('password')]);
+        // $user = User::where('telp',$request->telp)->where('password',bcrypt($request->password))->first();
+        if ($user) {
+
+        } else {
+            return redirect()->back()->withErrors(['User Tidak Ditemukan.']);
+        }
+
+        return redirect()->route('home');
+    }
+
+    public function ashley_register_post(Request $request)
+    {
+        $login = User::where('telp',$request['telp'])->first();
+        if ($login != null) {
+            return redirect()->back()->withErrors(['Telp Sudah Terdaftar Sebelumnya.']);
+        }
+        $user = User::create([
+                    'name' => $request['name'],
+                    'telp' => $request['telp'],
+                    'password' => Hash::make($request['password']),
+                ]);
+        Auth::attempt(['telp' => request('telp'), 'password' => request('password')]);
+        return redirect()->route('home');
     }
 }
