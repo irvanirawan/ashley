@@ -29,7 +29,7 @@ class Perawatan extends Model
 
     public function Perawatankategori()
     {
-        return $this->belongsTo('App\Perawatankategori','perawatan_kategori_id');
+        return $this->belongsTo('App\PerawatanKategori','perawatan_kategori_id');
     }
     public function TerapisPerawatan()
     {
