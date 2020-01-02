@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('style')
+<link rel="stylesheet" href="{{asset('akame/style.css')}}">
+@endsection
 @section('content')
     <div class="container">
         <div class="row">
@@ -13,19 +15,9 @@
                         <br />
                         <br />
 
-                        @if ($errors->any())
-                            <ul class="alert alert-danger">
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        @endif
+                        <div id="select-perawatan-admin">
 
-                        {!! Form::open(['url' => '/admin/booking', 'class' => 'form-horizontal', 'files' => true]) !!}
-
-                        @include ('admin.booking.form', ['formMode' => 'create'])
-
-                        {!! Form::close() !!}
+                        </div>
 
                     </div>
                 </div>

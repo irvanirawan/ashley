@@ -9,12 +9,13 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
-        "appzcoder/crud-generator": "^3.1",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^6.2",
-        "laravel/tinker": "^1.0"
+        "laravel/tinker": "^1.0",
+        "yajra/laravel-datatables-oracle": "^9.8"
     },
     "require-dev": {
+        "appzcoder/crud-generator": "^3.1",
         "facade/ignition": "^1.4",
         "fzaninotto/faker": "^1.4",
         "laravel/ui": "^1.1",

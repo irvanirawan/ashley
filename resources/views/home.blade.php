@@ -15,7 +15,7 @@
                         </div>
                     @endif
 
-                    <div id="example"></div>
+                    <div id="jadwalkerja"></div>
                 </div>
             </div>
         </div>

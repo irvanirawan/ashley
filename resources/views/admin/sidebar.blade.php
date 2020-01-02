@@ -41,6 +41,11 @@
                         Jadwal Terapis
                     </a>
                 </li>
+                <li role="nav-item">
+                    <a class="nav-link" href="{{ url('/admin/hari-libur') }}">
+                        Setting Libur Terapis
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

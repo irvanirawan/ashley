@@ -44,7 +44,9 @@ class ApiController extends Controller
         $slotId = $request->slotId;
         $perawatanId = $request->perawatanId;
         $data = TerapisPerawatan::where('perawatan_id','=',$perawatanId)
-                                ->withCount(['WaktuHari'=>function ($q) use($tgl,$slotId){ $q->where('booking.tanggal_datang','=',$tgl)->where('waktu_hari.id','=',$slotId);}])
+                                ->withCount([
+                                    'WaktuHari'=>function ($q) use($tgl,$slotId){ $q->where('booking.tanggal_datang','=',$tgl)->where('waktu_hari.id','=',$slotId);},
+                                    'HariLibur'=>function ($q) use($tgl){$q->where('tanggal',$tgl);}])
                                 ->has('Terapis')
                                 ->has('Perawatan')
                                 ->with(['Terapis','Perawatan'])

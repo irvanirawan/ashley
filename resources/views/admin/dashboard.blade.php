@@ -76,7 +76,7 @@
                                     <div class="col-md-3">
                                         <div class="card-counter primary">
                                         <i class="fa fa-ticket"></i>
-                                        <span class="count-numbers"><a style="color:#FFF" href="">12</a></span>
+                                        <span class="count-numbers"><a style="color:#FFF" href="">{{DB::table('booking')->where('status',1)->count()}}</a></span>
                                         <span class="count-name">Booking</span>
                                         </div>
                                     </div>
@@ -84,7 +84,7 @@
                                     <div class="col-md-3">
                                         <div class="card-counter danger">
                                         <i class="fa fa-code-fork"></i>
-                                        <span class="count-numbers"><a style="color:#FFF" href="">12</a></span>
+                                        <span class="count-numbers"><a style="color:#FFF" href="">{{DB::table('booking')->where('status',2)->count()}}</a></span>
                                         <span class="count-name">Cancel Booking</span>
                                         </div>
                                     </div>
@@ -92,7 +92,7 @@
                                     <div class="col-md-3">
                                         <div class="card-counter success">
                                         <i class="fa fa-database"></i>
-                                        <span class="count-numbers"><a style="color:#FFF" href="">12</a></span>
+                                        <span class="count-numbers"><a style="color:#FFF" href="">{{DB::table('booking')->where('status',3)->count()}}</a></span>
                                         <span class="count-name">Booked</span>
                                         </div>
                                     </div>
@@ -100,7 +100,7 @@
                                     <div class="col-md-3">
                                         <div class="card-counter info">
                                         <i class="fa fa-users"></i>
-                                        <span class="count-numbers"><a style="color:#FFF" href="">12</a></span>
+                                        <span class="count-numbers"><a style="color:#FFF" href="">{{DB::table('users')->count()}}</a></span>
                                         <span class="count-name">Customer</span>
                                         </div>
                                     </div>

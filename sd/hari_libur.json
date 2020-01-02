@@ -1,0 +1,22 @@
+{
+    "fields": [
+        {
+            "name": "terapis_id",
+            "type": "int"
+        },
+        {
+            "name": "tanggal",
+            "type": "text"
+        },
+    ],
+    "validations": [
+        {
+            "field": "terapis_id",
+            "rules": "required"
+        },
+        {
+            "field": "tanggal",
+            "rules": "required"
+        }
+    ]
+}

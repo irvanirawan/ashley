@@ -1,16 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::get('/', 'HomeController@awal')->name('awal');
 Route::get('/services', 'HomeController@services')->name('services');
 Route::get('/aboutus', 'HomeController@aboutus')->name('aboutus');
@@ -37,5 +26,17 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::resource('perawatan', 'Admin\PerawatanController');
     Route::resource('perawatan-kategori', 'Admin\PerawatanKategoriController');
     Route::resource('jadwal-terapis', 'Admin\JadwalTerapisController');
+    Route::resource('hari-libur', 'Admin\HariLiburController');
 });
+
 Route::post('booking', 'Admin\BookingController@booking');
+
+Route::post('booking-admin', 'Admin\BookingController@booking_admin');
+Route::get('booking-customer-data', 'Admin\BookingController@customer_data');
+Route::get('booking-jadwal-terapis', 'Admin\BookingController@booking_jadwal_terapis');
+Route::get('data-terapis', 'Admin\BookingController@dataterapis');
+
+Route::get('booking-finish', 'Admin\BookingController@booking_finish')->name('booking.finish');
+Route::get('booking-cancel', 'Admin\BookingController@booking_cancel')->name('booking.cancel');
+
+Route::get('datatables', 'DataTablesController@index')->name('datatables');

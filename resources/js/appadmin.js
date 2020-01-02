@@ -13,6 +13,3 @@ require('./bootstrap');
  */
 
 require('./components/Example');
-require('./components/JadwalKerja');
-require('./components/SelectPerawatan');
-require('./components/admin/SelectPerawatanAdmin');

@@ -29,11 +29,11 @@ class Booking extends Model
 
     public function User()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User','user_id');
     }
     public function TerapisPerawatan()
     {
-        return $this->hasOne('App\TerapisPerawatan','terapis_perawatan_id');
+        return $this->belongsTo('App\TerapisPerawatan','terapis_perawatan_id');
     }
     public function Perawatan()
     {
@@ -42,6 +42,10 @@ class Booking extends Model
     public function Terapis()
     {
         return $this->hasOne('App\Terapi','App\TerapisPerawatan','terapis_perawatan_id','terapis_id','id','id');
+    }
+    public function WaktuHari()
+    {
+        return $this->belongsTo('App\WaktuHari','waktu_hari_id');
     }
 
 }

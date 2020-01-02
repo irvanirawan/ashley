@@ -196,7 +196,7 @@
     <!-- Breadcrumb Area End -->
     {{-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> --}}
 <!-- Akame About Area Start -->
-<section id="select-perawatan" class="bg-form akame-portfolio section-padding-80 clearfix" style="z-index:-1">
+<section id="select-perawatan" class="bg-form akame-portfolio section-padding-80 clearfix" style="z-index:1">
 
 </section>
 <!-- Modal -->

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Skeleton from 'react-loading-skeleton';
 
-import '../css/SelectPerawatan.scss';
+// import '../css/SelectPerawatan.scss';
 
 class Terapis extends React.Component{
     constructor(props){
@@ -23,7 +23,8 @@ class Terapis extends React.Component{
         const tanggalFormat   = tahun+'-'+(bulan + 1)+'-'+tanggal;
         const parampampam = {perawatanId:this.props.perawatanId,slotId:this.props.slotId,tanggal:tanggalFormat};
         window.axios.get('/api/terapis',{params:parampampam}).then(({ data }) => {
-            this.setState({data,load:false})
+            this.setState({data,load:false});
+            console.log(data);
           });
     }
     selectTerapis(terapisPerawatanId,terapisPerawatanNama){
@@ -71,14 +72,15 @@ class TerapisList extends React.Component{
     }
     render() {
         const classClick = this.props.terpilih ? 'click' : '' ;
+        const classClickTeks = this.props.terpilih ? 'social-link-click' : '' ;
         return(
             <React.Fragment>
                 <div className="col-12 col-sm-6 col-lg-3">
                         <div onClick={this.handleTerapisClick} className={'single-team-member mb-80 ' + classClick}>
                             <div className="team-member-img">
-                                <img src="akame/img/bg-img/13.jpg" alt=""/>
+                                <img src="/akame/img/bg-img/13.jpg" alt=""/>
                                 <div className="team-social-info d-flex align-items-center justify-content-center">
-                                    <div className="social-link">
+                                    <div  className={'social-link ' + classClickTeks}>
                                         <div>Pilih</div>
                                     </div>
                                 </div>
