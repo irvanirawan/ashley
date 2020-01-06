@@ -26,12 +26,12 @@ class TerapisController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $terapis = Terapi::where('nama', 'LIKE', "%$keyword%")
+            $terapis = Terapi::where('aktif',0)->where('nama', 'LIKE', "%$keyword%")
                 ->orWhere('foto', 'LIKE', "%$keyword%")
                 ->orWhere('keterangan', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $terapis = Terapi::latest()->paginate($perPage);
+            $terapis = Terapi::where('aktif',0)->latest()->paginate($perPage);
         }
 
         return view('admin.terapis.index', compact('terapis'));
@@ -156,7 +156,8 @@ class TerapisController extends Controller
      */
     public function destroy($id)
     {
-        Terapi::destroy($id);
+        // Terapi::destroy($id);
+        Terapi::where('id',$id)->update(['aktif'=>1]);
 
         return redirect('admin/terapis')->with('flash_message', 'Terapi deleted!');
     }

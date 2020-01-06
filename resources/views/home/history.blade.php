@@ -36,7 +36,13 @@
                 <div class="service-text">
                     <h2>Daftar Booking</h2>
 @foreach ($data as $key => $item)
-                {{$key+1}}.&nbsp;<span>{{$item->nama}} ({{$item->harga}}k) &nbsp;&nbsp; : &nbsp;&nbsp; {{ date("d-m-Y",strtotime($item->tanggal_datang)) }} {{$item->start}} WIB </span><br>
+                {{$key+1}}.&nbsp;<span>{{$item->nama}} ({{$item->harga}}k) &nbsp;&nbsp; : &nbsp;&nbsp; {{ date("d-m-Y",strtotime($item->tanggal_datang)) }} {{$item->start}} WIB 
+                @if ($item->status == 1)
+                    <a href="{{ url('/booking-cancel?id=' . $item->id) }}" title="Edit Booking" onclick="return confirm('Konfirmasi!')"><button class="btn btn-danger btn-sm"><i class="fa fa-trash-o" aria-hidden="true"></i> Cancel</button></a>
+                @else 
+                <code>canceled</code>
+                @endif 
+                </span><br>
 @endforeach
                 </div>
             </div>

@@ -25,11 +25,11 @@ class PerawatanKategoriController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $perawatankategori = PerawatanKategori::where('nama', 'LIKE', "%$keyword%")
+            $perawatankategori = PerawatanKategori::where('aktif',0)->where('nama', 'LIKE', "%$keyword%")
                 ->orWhere('keterangan', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $perawatankategori = PerawatanKategori::latest()->paginate($perPage);
+            $perawatankategori = PerawatanKategori::where('aktif',0)->latest()->paginate($perPage);
         }
 
         return view('admin.perawatan-kategori.index', compact('perawatankategori'));
@@ -122,8 +122,8 @@ class PerawatanKategoriController extends Controller
      */
     public function destroy($id)
     {
-        PerawatanKategori::destroy($id);
-
+        // PerawatanKategori::destroy($id);
+        PerawatanKategori::where('id',$id)->update(['aktif'=>1]);
         return redirect('admin/perawatan-kategori')->with('flash_message', 'PerawatanKategori deleted!');
     }
 }

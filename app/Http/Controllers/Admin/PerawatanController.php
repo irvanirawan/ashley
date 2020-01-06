@@ -21,7 +21,7 @@ class PerawatanController extends Controller
      */
     public function api_index(Request $request)
     {
-        $data = \App\PerawatanKategori::with(['Perawatan'])->get();
+        $data = \App\PerawatanKategori::with(['Perawatan'])->where('aktif',0)->get();
         return response()->json($data);
     }
     /**
@@ -35,13 +35,14 @@ class PerawatanController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $perawatan = Perawatan::where('nama', 'LIKE', "%$keyword%")
+            $perawatan = Perawatan::where('aktif','=',0)
+                ->where('nama', 'LIKE', "%$keyword%")
                 ->orWhere('perawatan_kategori_id', 'LIKE', "%$keyword%")
                 ->orWhere('keterangan', 'LIKE', "%$keyword%")
                 ->with('Perawatankategori')
                 ->latest()->paginate($perPage);
         } else {
-            $perawatan = Perawatan::with('Perawatankategori')->latest()->paginate($perPage);
+            $perawatan = Perawatan::where('aktif','=',0)->with('Perawatankategori')->latest()->paginate($perPage);
         }
 
         return view('admin.perawatan.index', compact('perawatan'));
@@ -136,8 +137,8 @@ class PerawatanController extends Controller
      */
     public function destroy($id)
     {
-        Perawatan::destroy($id);
-
+        // Perawatan::destroy($id);
+        Perawatan::where('id',$id)->update(['aktif'=>1]);
         return redirect('admin/perawatan')->with('flash_message', 'Perawatan deleted!');
     }
 }

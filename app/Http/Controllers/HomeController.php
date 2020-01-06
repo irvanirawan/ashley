@@ -73,8 +73,8 @@ class HomeController extends Controller
         $data = DB::table('booking')
                     ->where('user_id',Auth::User()->id)
                     ->join('waktu_hari','waktu_hari.id','=','booking.waktu_hari_id')
-                    ->join('terapis_perawatan','terapis_perawatan.id','=','booking.terapis_perawatan_id')
-                    ->join('perawatan','perawatan.id','=','terapis_perawatan.perawatan_id')
+                    ->join('perawatan','perawatan.id','=','booking.perawatan_id')
+                    ->select('booking.*','waktu_hari.start','perawatan.nama','perawatan.harga')
                     ->get();
         return view('home.history',['data'=>$data]);
     }

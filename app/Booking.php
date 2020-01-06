@@ -25,7 +25,7 @@ class Booking extends Model
      *
      * @var array
      */
-    protected $fillable = ['user_id','status','file','terapis_perawatan_id','tanggal_datang','waktu_hari_id'];
+    protected $fillable = ['user_id','status','file','terapis_perawatan_id','tanggal_datang','waktu_hari_id','terapis_id','perawatan_id'];
 
     public function User()
     {
@@ -37,11 +37,11 @@ class Booking extends Model
     }
     public function Perawatan()
     {
-        return $this->hasOne('App\Perawatan','App\TerapisPerawatan','terapis_perawatan_id','perawatan_id','id','id');
+        return $this->belongsTo('App\Perawatan','perawatan_id');
     }
     public function Terapis()
     {
-        return $this->hasOne('App\Terapi','App\TerapisPerawatan','terapis_perawatan_id','terapis_id','id','id');
+        return $this->belongsTo('App\Terapi','terapis_id');
     }
     public function WaktuHari()
     {

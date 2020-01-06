@@ -108,8 +108,8 @@ class WaktuHariController extends Controller
     {
         $this->validate($request, [
 			'nama' => 'required',
-			'start' => 'required|date_format:H:i:s|before:finish',
-			'finish' => 'required|date_format:H:i:s|after:start'
+			'start' => 'required|date_format:H:i|before:finish',
+			'finish' => 'required|date_format:H:i|after:start'
 		]);
         $requestData = $request->all();
 

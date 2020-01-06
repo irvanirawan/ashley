@@ -78,9 +78,9 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->User['name'] }}</td>
                                         <td>
-                                            {{$item->TerapisPerawatan->Perawatan['nama']}}
+                                            {{$item->Perawatan['nama']}}
                                         </td>
-                                        <td>{{$item->TerapisPerawatan->Terapis['nama']}}</td>
+                                        <td>{{$item->Terapis['nama']}}</td>
                                         <td>{{$item->tanggal_datang}}</td>
                                         <td>{{$item->WaktuHari['start']}}</td>
                                         <td>

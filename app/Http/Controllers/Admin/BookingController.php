@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
 use App\Booking;
+use App\Terapis;
+use App\Perawatan;
+use App\TerapisPerawatan;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
@@ -81,7 +84,13 @@ class BookingController extends Controller
 			'user_id' => 'required|min:1'
 		]);
         $requestData = $request->all();
-
+        $TerapisPerawatan = TerapisPerawatan::where('id',$request->terapis_perawatan_id)->first();
+        $terapis = Terapis::where('id',$TerapisPerawatan->terapis_id)->first();
+        $perawatan = Perawatan::where('id',$TerapisPerawatan->perawatan_id)->first();
+        $requestData['terapis_id'] = $terapis->id;
+        $requestData['perawatan_id'] = $perawatan->id;
+        // $data = ['user_id'=>$request->user_id,'status'=>$request->status,'tanggal_datang'=>$request->tanggal_datang,
+        //         'waktu_hari_id'=>$request->waktu_hari_id,'terapis_id'=>$request->terapis_id,'perawatan_id'=>$request->perawatan_id];
         Booking::create($requestData);
 
         return redirect('admin/booking')->with('flash_message', 'Booking added!');
@@ -153,12 +162,17 @@ class BookingController extends Controller
     public function booking(Request $request)
     {
         $user = Auth::User();
+        
+        $TerapisPerawatan = TerapisPerawatan::where('id',$request->terapisPerawatanId)->first();
+
         Booking::create([
             'user_id'               => $user->id ,
             'status'                => 1 ,
             'terapis_perawatan_id'  => $request->terapisPerawatanId ,
             'tanggal_datang'        => $request->tanggal ,
-            'waktu_hari_id'         => $request->slotId
+            'waktu_hari_id'         => $request->slotId ,
+            'terapis_id'            => $TerapisPerawatan->terapis_id ,
+            'perawatan_id'          => $TerapisPerawatan->perawatan_id
         ]);
         return response()->json('sukses');
     }
@@ -168,12 +182,17 @@ class BookingController extends Controller
         if (Auth::User()->admin != 1) {
             return response()->json('hak akses dilarang.',403);
         }
+        
+        $TerapisPerawatan = TerapisPerawatan::where('id',$request->terapisPerawatanId)->first();
+
         Booking::create([
             'user_id'               => $request->user_id ,
             'status'                => 1 ,
             'terapis_perawatan_id'  => $request->terapisPerawatanId ,
             'tanggal_datang'        => $request->tanggal ,
-            'waktu_hari_id'         => $request->slotId
+            'waktu_hari_id'         => $request->slotId ,
+            'terapis_id'            => $TerapisPerawatan->terapis_id ,
+            'perawatan_id'          => $TerapisPerawatan->perawatan_id
         ]);
         return response()->json('sukses');
     }

@@ -49,7 +49,9 @@ class ApiController extends Controller
                                     'HariLibur'=>function ($q) use($tgl){$q->where('tanggal',$tgl);}])
                                 ->has('Terapis')
                                 ->has('Perawatan')
-                                ->with(['Terapis','Perawatan'])
+                                ->with([
+                                    'Terapis'=>function ($q) {$q->where('aktif',0);},
+                                    'Perawatan'=>function ($q) {$q->where('aktif',0);}])
                                 ->get();
         return response()->json($data);
     }

@@ -38,11 +38,11 @@
                                         <tbody>
                                             <tr>
                                                 <th>Terapis</th>
-                                                <td>{{ $booking->TerapisPerawatan->Terapis['nama'] }}</td>
+                                                <td>{{ $booking->Terapis['nama'] }}</td>
                                             </tr>
                                             <tr>
                                                 <th>Keterangan</th>
-                                                <td>{{ $booking->TerapisPerawatan->Terapis['keterangan'] }}</td>
+                                                <td>{{ $booking->Terapis['keterangan'] }}</td>
                                             </tr>
                                             <tr>
                                                 <th><img style="width: 150px" src="{{ asset('terapis').'/'.$booking->TerapisPerawatan->Terapis['foto'] }}" ></th>
