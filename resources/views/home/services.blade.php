@@ -32,7 +32,7 @@
                         <div class="service-text">
                         <h2>{{$itemsatu->nama}}</h2>
                         @foreach (DB::table('perawatan')->where('perawatan_kategori_id',$itemsatu->id)->get() as $item)
-                            <p><span>{{$item->nama}}:</span> <span>{{$item->harga}}</span></p>
+                            <p><span>{{$item->nama}}:</span> <span>{{$item->harga}} k</span></p>
                         @endforeach
                         </div>
                     </div>
@@ -49,7 +49,7 @@
                         <div class="service-text">
                             <h2>Hair dyed</h2>
                             @foreach (DB::table('perawatan')->where('perawatan_kategori_id',$itemsatu->id)->get() as $item)
-                                <p><span>{{$item->nama}}:</span> <span>{{$item->harga}}</span></p>
+                                <p><span>{{$item->nama}}:</span> <span>{{$item->harga}} k</span></p>
                             @endforeach
                         </div>
                     </div>
