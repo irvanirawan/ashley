@@ -130,8 +130,8 @@
                                                 <tr>
                                                     <td>{{ $item->name }}</td>
                                                     <td>{{ $item->telp }}</td>
-                                                    <td>{{ 0 }}</td>
-                                                    <td>{{ 0 }}</td>
+                                                    <td>{{ DB::table('booking')->where('user_id',$item->id)->where('status',2)->count() }}</td>
+                                                    <td>{{ DB::table('booking')->where('user_id',$item->id)->where('status',3)->count() }}</td>
                                                 </tr>
                                             @endforeach
                                             </tbody>
