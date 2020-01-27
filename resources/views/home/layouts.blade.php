@@ -105,25 +105,22 @@
                                     {{-- <li class="{{ Request::is('blog') ? 'active' : '' }}"><a href="{{route('blog')}}">Blog</a></li> --}}
                                     <li class="{{ Request::is('contact') ? 'active' : '' }}"><a href="{{route('contact')}}">Contact</a></li>
                                     @if (Auth::check())
-                                    <li><a href="#" >{{Auth::User()->name}}</a>
-                                        <ul class="dropdown">
-                                            <li>
-                                                {{-- <a href="./index.html"><i class="fa fa-sign-out"></i> Logout</a> --}}
-                                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                                    onclick="event.preventDefault();
-                                                                    document.getElementById('logout-form').submit();">
-                                                    <i class="fa fa-sign-out"></i> Logout
-                                                </a>
-
-                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                                    @csrf
-                                                </form>
-                                            </li>
-                                        </ul>
+                                    <li><a href="#" >{{Auth::User()->name}}</a></li>
+                                    <li class>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                            document.getElementById('logout-form').submit();">
+                                            <i class="fa fa-sign-out"></i> Logout
+                                        </a>
                                     </li>
                                     @endif
 
                                 </ul>
+
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
                                 @if (Auth::check())
                                 <!-- Cart Icon -->
                                 <div class="cart-icon ml-5 mt-4 mt-lg-0">

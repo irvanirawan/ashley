@@ -108,7 +108,42 @@
                             </div>
                     </div>
                 </div>
+                <br>
+                <div class="card" style="padding-top:0px">
+                    <div class="card-header">Data Customer</div>
+
+                    <div class="card-body">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="table-responsive">
+                                        <table class="table table-borderless">
+                                            <thead>
+                                                <tr>
+                                                    <th>Nama</th>
+                                                    <th>Telp</th>
+                                                    <th>Booking Finish</th>
+                                                    <th>Booking Cancel</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach(DB::table('users')->where('admin','=',null)->get() as $item)
+                                                <tr>
+                                                    <td>{{ $item->name }}</td>
+                                                    <td>{{ $item->telp }}</td>
+                                                    <td>{{ 0 }}</td>
+                                                    <td>{{ 0 }}</td>
+                                                </tr>
+                                            @endforeach
+                                            </tbody>
+                                        </table>
+                                        {{-- <div class="pagination-wrapper"> {!! $perawatankategori->appends(['search' => Request::get('search')])->render() !!} </div> --}}
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
             </div>
+
         </div>
     </div>
 @endsection
