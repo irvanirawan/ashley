@@ -110,9 +110,19 @@
                 </div>
                 <br>
                 <div class="card" style="padding-top:0px">
-                    <div class="card-header">Data Customer</div>
+                <div class="card-header">Data Customer {{Request::get('search') !== null}}</div>
 
                     <div class="card-body">
+                        <div class="input-group">
+                            <form action="#" method="get" class="form-inline float-right">
+                                <input type="text" class="form-control" name="search" placeholder="Search..." value="{{ request('search') }}">
+                                <span class="input-group-append">
+                                    <button class="btn btn-secondary" type="submit">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                            </form>
+                        </div>
                             <div class="container">
                                 <div class="row">
                                     <div class="table-responsive">
@@ -126,7 +136,17 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach(DB::table('users')->where('admin','=',null)->get() as $item)
+                                            @php
+                                            if (Request::get('search') !== null) {
+                                                    $data = DB::table('users')->where(function($query) {
+                                                                $query->where('name', Request::get('search'))
+                                                                    ->orWhere('email', Request::get('search'));
+                                                            })->where('admin','=',null)->get();
+                                            }else {
+                                                $data = DB::table('users')->where('admin','=',null)->get();
+                                            }
+                                            @endphp
+                                            @foreach($data as $item)
                                                 <tr>
                                                     <td>{{ $item->name }}</td>
                                                     <td>{{ $item->telp }}</td>
