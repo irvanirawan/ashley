@@ -71,12 +71,13 @@ class TerapisList extends React.Component{
     }
     render() {
         const classClick = this.props.terpilih ? 'click' : '' ;
+        const linkgambar = "terapis/"+this.props.datanya.terapis.foto;
         return(
             <React.Fragment>
                 <div className="col-12 col-sm-6 col-lg-3">
                         <div onClick={this.handleTerapisClick} className={'single-team-member mb-80 ' + classClick}>
                             <div className="team-member-img">
-                                <img src="akame/img/bg-img/13.jpg" alt=""/>
+                                <img src={linkgambar} alt=""/>
                                 <div className="team-social-info d-flex align-items-center justify-content-center">
                                     <div className="social-link">
                                         <div>Pilih</div>

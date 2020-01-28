@@ -112304,6 +112304,7 @@ function (_React$Component2) {
     key: "render",
     value: function render() {
       var classClick = this.props.terpilih ? 'click' : '';
+      var linkgambar = "terapis/" + this.props.datanya.terapis.foto;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-12 col-sm-6 col-lg-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -112312,7 +112313,7 @@ function (_React$Component2) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "team-member-img"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: "akame/img/bg-img/13.jpg",
+        src: linkgambar,
         alt: ""
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "team-social-info d-flex align-items-center justify-content-center"
@@ -113383,6 +113384,7 @@ function (_React$Component2) {
     value: function render() {
       var classClick = this.props.terpilih ? 'click' : '';
       var classClickTeks = this.props.terpilih ? 'social-link-click' : '';
+      var linkgambar = "/terapis/" + this.props.datanya.terapis.foto;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-12 col-sm-6 col-lg-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -113391,7 +113393,7 @@ function (_React$Component2) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "team-member-img"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: "/akame/img/bg-img/13.jpg",
+        src: linkgambar,
         alt: ""
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "team-social-info d-flex align-items-center justify-content-center"
