@@ -130,7 +130,7 @@ class TerapisController extends Controller
         // $accept             = ['ProductId', 'AvailabilityTypeId','Stock','PODuration'];
         // $fieldnya           = $request->only($accept);
 
-        if ($request->hasFile('photo')) {
+        if ($request->hasFile('foto')) {
             $fileName = time().'.'.$request->foto->extension();
             $request->foto->move(public_path('terapis'), $fileName);
             $requestData['foto'] = $fileName;
