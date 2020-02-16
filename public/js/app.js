@@ -112251,7 +112251,7 @@ function (_React$Component) {
       var rows = [];
       var slot = Array.from(data);
       slot.map(function (item, index) {
-        if (item.waktu_hari_count === 0 && item.hari_libur_count === 0) {
+        if (item.waktu_hari_count === 0 && item.hari_libur_count === 0 && item.terapis != null && item.perawatan != null) {
           var dipilih = item.id == _this3.state.terapisPerawatanId ? true : false;
           rows.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(TerapisList, {
             key: index,

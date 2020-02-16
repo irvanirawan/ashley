@@ -35,7 +35,7 @@ class Terapis extends React.Component{
         const rows = [];
         const slot = Array.from(data);
         slot.map((item,index)=>{
-            if((item.waktu_hari_count === 0) && (item.hari_libur_count === 0)){
+            if((item.waktu_hari_count === 0) && (item.hari_libur_count === 0) && (item.terapis != null) && (item.perawatan != null)){
                 const dipilih = (item.id == this.state.terapisPerawatanId) ? true : false ;
                 rows.push(
                     <TerapisList key={index} datanya={item} fungsi={this.selectTerapis} terpilih={dipilih}/>
