@@ -30,10 +30,10 @@ class HomeController extends Controller
     {
         // return view('home');
         // dd(Auth::User());
-        if (Auth::User()->admin == 1) {
-            return redirect('admin');
-        }else {
+        if (Auth::User()->admin === null) {
             return redirect()->route('booking');
+        }else {
+            return view('admin.dashboard');
         }
     }
 

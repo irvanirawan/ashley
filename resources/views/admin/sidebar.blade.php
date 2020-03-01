@@ -11,6 +11,7 @@
                         Dashboard
                     </a>
                 </li>
+@if (Auth::User()->admin == 1)
                 <li role="nav-item">
                     <a class="nav-link" href="{{ url('/admin/perawatan-kategori') }}">
                         Kategori Perawatan
@@ -31,6 +32,8 @@
                         Setting Day Slot
                     </a>
                 </li>
+@endif
+@if (Auth::User()->admin != 3)
                 <li role="nav-item">
                     <a class="nav-link" href="{{ url('/admin/booking') }}">
                         Booking
@@ -41,11 +44,21 @@
                         Jadwal Terapis
                     </a>
                 </li>
+@endif
+@if (Auth::User()->admin == 1)
                 <li role="nav-item">
                     <a class="nav-link" href="{{ url('/admin/hari-libur') }}">
                         Setting Libur Terapis
                     </a>
                 </li>
+@endif
+@if (Auth::User()->admin == 3)
+                <li role="nav-item">
+                    <a class="nav-link" href="{{ url('/admin/jadwal-terapi') }}">
+                        Jadwal Kerja
+                    </a>
+                </li>
+@endif
             </ul>
         </div>
     </div>

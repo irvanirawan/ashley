@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
-
+use Auth;
+use DB;
 use App\Booking;
 use Illuminate\Http\Request;
 
@@ -35,6 +36,25 @@ class JadwalTerapisController extends Controller
         }
 
         return view('admin.jadwal-terapis.index', compact('booking'));
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function terapis(Request $request)
+    {
+        $tearpis = DB::table('terapis')->where('id',Auth::User()->telp)->first();
+        $id = ($tearpis != null)?$tearpis->id:1;
+        $data = \DB::table('booking')
+                    ->leftjoin('waktu_hari','booking.waktu_hari_id','=','waktu_hari.id')
+                    ->leftjoin('terapis_perawatan','booking.terapis_perawatan_id','=','terapis_perawatan.id')
+                    ->join('perawatan','terapis_perawatan.perawatan_id','=','perawatan.id')
+                    ->where('terapis_perawatan.perawatan_id',$id)
+                    ->select('perawatan.nama as title',\DB::raw("concat(booking.tanggal_datang,(' '||waktu_hari.start)) as start"))
+                    ->get();
+
+        return view('admin.jadwal-terapis.terapis', compact('data'));
     }
 
     /**

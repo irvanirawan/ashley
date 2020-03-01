@@ -28,6 +28,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function(){
     Route::resource('perawatan', 'Admin\PerawatanController');
     Route::resource('perawatan-kategori', 'Admin\PerawatanKategoriController');
     Route::resource('jadwal-terapis', 'Admin\JadwalTerapisController');
+    Route::get('jadwal-terapi', 'Admin\JadwalTerapisController@terapis');
     Route::resource('hari-libur', 'Admin\HariLiburController');
 });
 
