@@ -30,13 +30,13 @@
                             <table class="table table-borderless">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Nama</th><th>Foto</th><th>Keterangan</th><th>Actions</th>
+                                        <th>#</th><th>Kode</th><th>Nama</th><th>Foto</th><th>Keterangan</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($terapis as $item)
                                     <tr>
-                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $loop->iteration }}</td><td>{{ $item->id }}</td>
                                         <td>{{ $item->nama }}</td><td><img class="myImg" id="myImg" style="width: 80px" src="{{ asset('terapis').'/'.$item->foto }}" ></td><td>{{ $item->keterangan }}</td>
                                         <td>
                                             <a href="{{ url('/admin/terapis/' . $item->id) }}" title="View Terapi"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
