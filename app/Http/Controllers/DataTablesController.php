@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Yajra\Datatables;
 use DB;
+use Illuminate\Support\Facades\Hash;
 
 class DataTablesController extends Controller
 {
@@ -23,6 +24,22 @@ class DataTablesController extends Controller
                     ->join('perawatan','perawatan.id','=','terapis_perawatan.perawatan_id')
                     ->get();
         return datatables()->of($data)->toJson();
+    }
+
+    public function generateterapis()
+    {
+        $terapis = DB::table('terapis')->get();
+        foreach ($terapis as $key => $value) {
+            $data = DB::table('users')->where('telp',$value->id)->first();
+            if ($data === null) {
+                DB::table('users')->insert([
+                    'name'      =>  $value->nama,
+                    'password'  =>  Hash::make(123456),
+                    'admin'     =>  3,
+                    'telp'      =>  $value->id
+                ]);
+            }
+        }
     }
 
     /**

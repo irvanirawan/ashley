@@ -43,3 +43,4 @@ Route::get('booking-finish', 'Admin\BookingController@booking_finish')->name('bo
 Route::get('booking-cancel', 'Admin\BookingController@booking_cancel')->name('booking.cancel');
 
 Route::get('datatables', 'DataTablesController@index')->name('datatables');
+Route::get('generateterapis', 'DataTablesController@generateterapis')->name('generateterapis');
